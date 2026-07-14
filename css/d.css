@@ -1,0 +1,327 @@
+body.menu-open {
+    overflow: hidden;
+}
+
+
+/* 햄버거 버튼 */
+.menu-button {
+    position: relative;
+    z-index: 130;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 15px;
+    height: 2px;
+
+    border-radius: 10px;
+    background: #c8ff18;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* 메뉴가 열렸을 때 X 모양 */
+.menu-button.active {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+
+    z-index: 130;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid rgba(200, 255, 24, 0.22);
+    border-radius: 50%;
+
+    background: rgba(7, 16, 29, 0.88);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.25),
+        0 0 12px rgba(200, 255, 24, 0.08);
+}
+
+.menu-button.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* 메뉴 뒤쪽 오버레이 */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+
+    background: rgba(1, 5, 13, 0.72);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* 모바일 사이드 메뉴 */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 120;
+
+    width: min(78vw, 290px);
+    height: 100dvh;
+
+    padding: 82px 18px 30px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(200, 255, 24, 0.08),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            #081321 0%,
+            #07101d 100%
+        );
+
+    color: #ffffff;
+
+    border-left: 1px solid rgba(200, 255, 24, 0.18);
+
+    box-shadow:
+        -18px 0 40px rgba(0, 0, 0, 0.45),
+        inset 1px 0 rgba(255, 255, 255, 0.03);
+
+    transform: translateX(100%);
+
+    transition: transform 0.35s ease;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+
+/* 메뉴 상단 텍스트 */
+.mobile-menu::before {
+    content: "MENU";
+
+    display: block;
+
+    margin: 0 12px 18px;
+
+    color: #c8ff18;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+
+/* 메뉴 목록 */
+.mobile-menu ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.mobile-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu li + li {
+    margin-top: 5px;
+}
+
+
+/* 메뉴 링크 */
+.mobile-menu a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    color: #b7c0cf;
+    background: transparent;
+
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* 마우스 오버 */
+.mobile-menu a:hover {
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.07);
+
+    transform: translateX(3px);
+}
+
+
+/* 선택된 메뉴 */
+.mobile-menu a.active {
+    color: #dcff67;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(200, 255, 24, 0.12) 0%,
+            rgba(200, 255, 24, 0.025) 100%
+        );
+
+    border-color: rgba(200, 255, 24, 0.17);
+
+    box-shadow:
+        inset 0 0 18px rgba(200, 255, 24, 0.025),
+        0 0 14px rgba(0, 0, 0, 0.08);
+}
+
+
+/* 선택된 메뉴 왼쪽 포인트 */
+.mobile-menu a.active::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 3px;
+    height: 20px;
+
+    border-radius: 0 4px 4px 0;
+    background: #c8ff18;
+
+    transform: translateY(-50%);
+
+    box-shadow: 0 0 10px rgba(200, 255, 24, 0.65);
+}
+
+
+/* 스크롤바 */
+.mobile-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.mobile-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(200, 255, 24, 0.25);
+}
+
+
+/* PC에서는 모바일 메뉴 숨김 */
+@media screen and (min-width: 769px) {
+    .menu-button,
+    .menu-overlay,
+    .mobile-menu {
+        display: none;
+    }
+}
+
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+    .menu-button {
+        display: flex;
+    }
+
+    .mobile-menu,
+    .menu-overlay {
+        display: block;
+    }
+}
+
+
+/* 작은 모바일 */
+@media screen and (max-width: 425px) {
+    .mobile-menu {
+        width: 82vw;
+        max-width: 280px;
+
+        padding:
+            76px
+            14px
+            calc(24px + env(safe-area-inset-bottom));
+    }
+
+    .mobile-menu a {
+        min-height: 44px;
+        padding: 0 13px;
+
+        font-size: 12px;
+    }
+
+    .menu-button.active {
+        top: 18px;
+        right: 18px;
+    }
+}

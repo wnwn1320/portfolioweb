@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GE's Portfolio | 한국어</title>
+    <meta name="title" content="GE's Portfolio">
+    <meta name="description" content="웹디자이너, 영상편집자 정가은의 웹 포트폴리오 사이트입니다.">
+    <meta name="keywords" content="포트폴리오, 웹디자이너, 영상편집">
+    <meta name="author" content="GE">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GE's Portfolio">
+    <meta property="og:title" content="GE's Portfolio">
+    <meta property="og:description" content="웹디자이너, 영상편집자 정가은의 웹 포트폴리오 사이트입니다.">
+    <meta property="og:image" content="images/meta-thumb.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/sparkle.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/sparkle.jquery.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/language.js" defer></script>
+    <script src="js/keyring.js" defer></script>
+    <script src="js/index.js" defer></script>
+</head>
+
+<body>
+    <header class="no-sparkle">
+        <div class="header-left">
+            <h1 class="logo">
+                <img src="images/logo.png" alt="">
+            </h1>
+            <div class="language-switcher">
+                <button type="button" class="language-button" aria-expanded="false" aria-controls="language-menu">
+                    <span class="language-current">KO</span>
+                    <span class="language-arrow" aria-hidden="true"></span>
+                </button>
+
+                <div class="language-menu" id="language-menu">
+                    <p class="language-title">Language</p>
+
+                    <a href="index.html" data-lang="ko">
+                        <span>한국어</span>
+                        <small>KO</small>
+                    </a>
+
+                    <a href="index-en.html" data-lang="en">
+                        <span>English</span>
+                        <small>EN</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <ul class="menu">
+                <li class="on">영상편집</li>
+                <li>웹디자인</li>
+                <li>그래픽디자인</li>
+                <li>로고 디자인</li>
+                <li>3D 그래픽</li>
+            </ul>
+        </div>
+        <div class="menu-overlay"></div>
+        <div class="mobile-menu">
+            <button type="button" class="menu-close" aria-label="메뉴 닫기">
+                <span></span>
+                <span></span>
+            </button>
+            <h2>MENU</h2>
+            <ul>
+                <li class="active on">영상편집</li>
+                <li>웹디자인</li>
+                <li>그래픽 디자인</li>
+                <li>로고 디자인</li>
+                <li>3D 그래픽</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="banner">
+
+                <!-- 배경 이미지 -->
+                <picture class="banner-picture">
+
+                    <!-- 모바일 배경 -->
+                    <source media="(max-width: 767px)" srcset="images/m-banner.jpg">
+
+                    <!-- PC·태블릿 배경 -->
+                    <img src="images/pc-main-banner-no-object.jpg" alt="GE 포트폴리오 메인 배너" class="banner-bg">
+
+                </picture>
+
+
+                <!-- 키링 위치 영역 -->
+                <div class="keyring-position">
+
+                    <!-- 키링 전체 묶음 -->
+                    <div class="keyring-set">
+                        <!-- 키링 툴팁 -->
+                        <div class="drag-tooltip">Drag Me!</div>
+                        <!-- 메인 고리 -->
+                        <!-- 메인 고리 드래그 시 키링 전체 이동 -->
+                        <img src="images/keyring/main-ring-part.png" alt="" class="main-ring keyring-handle"
+                            draggable="false">
+
+
+                        <!-- 비즈 참 -->
+                        <img src="images/keyring/biz-charm.png" alt="" class="keyring-charm biz-charm" data-rotate="-8"
+                            draggable="false">
+
+
+                        <!-- GE 참 -->
+                        <img src="images/keyring/ge-charm.png" alt="" class="keyring-charm ge-charm" data-rotate="-7"
+                            draggable="false">
+
+
+                        <!-- 커서 참 -->
+                        <img src="images/keyring/cursor-charm.png" alt="" class="keyring-charm cursor-charm"
+                            data-rotate="4" draggable="false">
+
+
+                        <!-- 이름 비즈 참 -->
+                        <img src="images/keyring/name-charm.png" alt="" class="keyring-charm name-charm" data-rotate="8"
+                            draggable="false">
+
+
+                        <!-- 프로그램 키캡 참 -->
+                        <img src="images/keyring/skill-charm.png" alt="" class="keyring-charm skill-charm"
+                            data-rotate="-2" draggable="false">
+
+
+                        <!-- 별 참 -->
+                        <img src="images/keyring/star-charm.png" alt="" class="keyring-charm star-charm" data-rotate="9"
+                            draggable="false">
+                    </div>
+                </div>
+            </section>
+            <section class="introduce">
+                <div class="inner no-sparkle">
+                    <div class="intro-left">
+                        <div class="pic">
+                            <img src="https://placehold.co/344x413" alt="">
+                        </div>
+                        <div class="hi-desc">
+                            <p>반갑습니다</p>
+                            <span>무한한 가능성과 잠재력의<br>
+                                소유자, 정가은입니다.</span>
+                            <div class="adress">
+                                <span>
+                                    <a href="">
+                                        010-5689-0286
+                                    </a>
+                                </span>
+                                <span>
+                                    <a href="">
+                                        wnwn1320@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume intro-right" data-aos="fade-left">
+                        <div class="resume-row">
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    경력
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            제이컴인터내셔널(사원)
+                                        </strong>
+                                        <span>
+                                            2023.02 - 2026.02
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            해피 CGI (사원)
+                                        </strong>
+                                        <span>
+                                            2021.11 - 2022.06
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            데일리데코(사원)
+                                        </strong>
+                                        <span>
+                                            2021.07 - 2021.09
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    자격증
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            그래픽기술자격 (GTQ) 1급
+                                        </strong>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            한글파워포인트 (한쇼) A
+                                        </strong>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            한글엑셀 (한셀) B
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="resume-row">
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    교육이수
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            그린컴퓨터아트학원<br>
+                                            디지털영상편집(프리미어프로,<br> 에프터이펙트, 블렌더)
+                                        </strong>
+                                        <span>
+                                            2026.04 - 2026.10
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            그린컴퓨터아트학원 웹디자인<br> 구직자양성과정
+                                        </strong>
+                                        <span>
+                                            2021.02 - 2021.07
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    어학연수
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            뉴질랜드<br>(대구광역시교육청 글로벌사업 학생 선정)
+                                        </strong>
+                                        <span>
+                                            2019.09 - 2020.09
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tab">
+                <div class="inner no-sparkle">
+                    <h2>What is she capable of?</h2>
+                    <ul class="tab-menu" data-aos="fade-up">
+                        <li class="on">영상편집</li>
+                        <li>웹디자인</li>
+                        <li>그래픽디자인</li>
+                        <li>로고 디자인</li>
+                        <li>3D 그래픽</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="tab-items">
+                <section class="video-editing on">
+                    <div class="inner swiper">
+                        <h3>영상편집</h3>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="https://placehold.co/1440x700" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://placehold.co/1440x700" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://placehold.co/1440x700" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://placehold.co/1440x700" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://placehold.co/1440x700" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="web-design">
+                    <div class="inner">
+                        <h3>웹디자인</h3>
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="images/Zenir-pc-main.png" alt="">
+                                    <div class="web-desc">
+                                        <strong>
+                                            Zenir
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                Shopify 기반 의료 스크럽복 브랜드 ZENIR의 자사몰 구축 및
+                                                운영을<br>
+                                                담당했습니다.쇼피파이 Liquid를 활용한 커스텀 섹션 제작,<br> 메인 페이지 및 컬렉션 페이지 디자인, 서드파티 앱과
+                                                리퀴드를
+                                                혼용해<br>
+                                                반응형 웹 구현 등을 진행했으며<br>
+                                                브랜드 방향성에 맞는 UI/UX 개선 작업을 수행했습니다.
+                                            </p>
+                                            <ul>
+                                                <li>Shopify Liquid 기반 커스텀 섹션 제작</li>
+                                                <li>메인페이지 및 컬렉션 페이지 디자인 · 유지보수</li>
+                                                <li>서드파티 앱 연동 및 설정</li>
+                                                <li>
+                                                    <div class="skill">
+                                                        <img src="images/adobe-photoshop-logo-2021.svg"
+                                                            alt="Photoshop Logo">
+                                                        <img src="images/shopify-logo-png-transparent.png"
+                                                            alt="Shopify logo">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/Zenir-pc-main.png" alt="">
+                                    <div class="web-desc">
+                                        <strong>
+                                            Zenir
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                Shopify 기반 의료 스크럽복 브랜드 ZENIR의 자사몰 구축 및
+                                                운영을<br>
+                                                담당했습니다.쇼피파이 Liquid를 활용한 커스텀 섹션 제작,<br> 메인 페이지 및 컬렉션 페이지 디자인, 서드파티 앱과
+                                                리퀴드를
+                                                혼용해<br>
+                                                반응형 웹 구현 등을 진행했으며<br>
+                                                브랜드 방향성에 맞는 UI/UX 개선 작업을 수행했습니다.
+                                            </p>
+                                            <ul>
+                                                <li>Shopify Liquid 기반 커스텀 섹션 제작</li>
+                                                <li>메인페이지 및 컬렉션 페이지 디자인 · 유지보수</li>
+                                                <li>서드파티 앱 연동 및 설정</li>
+                                                <li>
+                                                    <div class="skill">
+                                                        <img src="images/adobe-photoshop-logo-2021.svg"
+                                                            alt="Photoshop Logo">
+                                                        <img src="images/shopify-logo-png-transparent.png"
+                                                            alt="Shopify logo">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/Zenir-pc-main.png" alt="">
+                                    <div class="web-desc">
+                                        <strong>
+                                            Zenir
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                Shopify 기반 의료 스크럽복 브랜드 ZENIR의 자사몰 구축 및
+                                                운영을<br>
+                                                담당했습니다.쇼피파이 Liquid를 활용한 커스텀 섹션 제작,<br> 메인 페이지 및 컬렉션 페이지 디자인, 서드파티 앱과
+                                                리퀴드를
+                                                혼용해<br>
+                                                반응형 웹 구현 등을 진행했으며<br>
+                                                브랜드 방향성에 맞는 UI/UX 개선 작업을 수행했습니다.
+                                            </p>
+                                            <ul>
+                                                <li>Shopify Liquid 기반 커스텀 섹션 제작</li>
+                                                <li>메인페이지 및 컬렉션 페이지 디자인 · 유지보수</li>
+                                                <li>서드파티 앱 연동 및 설정</li>
+                                                <li>
+                                                    <div class="skill">
+                                                        <img src="images/adobe-photoshop-logo-2021.svg"
+                                                            alt="Photoshop Logo">
+                                                        <img src="images/shopify-logo-png-transparent.png"
+                                                            alt="Shopify logo">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/Zenir-pc-main.png" alt="">
+                                    <div class="web-desc">
+                                        <strong>
+                                            Zenir
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                Shopify 기반 의료 스크럽복 브랜드 ZENIR의 자사몰 구축 및
+                                                운영을<br>
+                                                담당했습니다.쇼피파이 Liquid를 활용한 커스텀 섹션 제작,<br> 메인 페이지 및 컬렉션 페이지 디자인, 서드파티 앱과
+                                                리퀴드를
+                                                혼용해<br>
+                                                반응형 웹 구현 등을 진행했으며<br>
+                                                브랜드 방향성에 맞는 UI/UX 개선 작업을 수행했습니다.
+                                            </p>
+                                            <ul>
+                                                <li>Shopify Liquid 기반 커스텀 섹션 제작</li>
+                                                <li>메인페이지 및 컬렉션 페이지 디자인 · 유지보수</li>
+                                                <li>서드파티 앱 연동 및 설정</li>
+                                                <li>
+                                                    <div class="skill">
+                                                        <img src="images/adobe-photoshop-logo-2021.svg"
+                                                            alt="Photoshop Logo">
+                                                        <img src="images/shopify-logo-png-transparent.png"
+                                                            alt="Shopify logo">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/Zenir-pc-main.png" alt="">
+                                    <div class="web-desc">
+                                        <strong>
+                                            Zenir
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                Shopify 기반 의료 스크럽복 브랜드 ZENIR의 자사몰 구축 및
+                                                운영을<br>
+                                                담당했습니다.쇼피파이 Liquid를 활용한 커스텀 섹션 제작,<br> 메인 페이지 및 컬렉션 페이지 디자인, 서드파티 앱과
+                                                리퀴드를
+                                                혼용해<br>
+                                                반응형 웹 구현 등을 진행했으며<br>
+                                                브랜드 방향성에 맞는 UI/UX 개선 작업을 수행했습니다.
+                                            </p>
+                                            <ul>
+                                                <li>Shopify Liquid 기반 커스텀 섹션 제작</li>
+                                                <li>메인페이지 및 컬렉션 페이지 디자인 · 유지보수</li>
+                                                <li>서드파티 앱 연동 및 설정</li>
+                                                <li>
+                                                    <div class="skill">
+                                                        <img src="images/adobe-photoshop-logo-2021.svg"
+                                                            alt="Photoshop Logo">
+                                                        <img src="images/shopify-logo-png-transparent.png"
+                                                            alt="Shopify logo">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="graphic-design swiper inner">
+                    <h3>그래픽 디자인</h3>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <span>01</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>02</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>03</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>04</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>05</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>06</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>07</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <span>08</span>
+                            <img src="https://placehold.co/348x450" alt="">
+                        </div>
+                    </div>
+                </section>
+                <section class="logo-design swiper inner">
+                    <h3>로고 디자인</h3>
+                    <div class="logo-box swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="images/오너라로고.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/아삶공로고.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/300x300" alt="" class="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/300x300" alt="" class="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/300x300" alt="" class="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/300x300" alt="" class="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/300x300" alt="" class="">
+                        </div>
+                    </div>
+                    <div class="pagenation">
+                        <div class="sw-next"></div>
+                        <div class="sw-prev"></div>
+                    </div>
+                </section>
+                <section class="threeD-graphic swiper inner">
+                    <h3>3D 그래픽</h3>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/715x545" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/715x545" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/715x545" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://placehold.co/715x545" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <h3>Hi :) Contact Me!</h3>
+        <div class="footer-adress">
+            <p><a href="mailto:wnwn1320@gmail.com">wnwn1320@gmail.com</a></p>
+            <p><a href="tel:010-5689-0286">+82 010-5689-0286</a></p>
+        </div>
+    </footer>
+    <script>
+        const videoSwiper = new Swiper('.video-editing .swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            observer: true,
+            observeParents: true
+        });
+
+        const webSwiper = new Swiper('.web-design .swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            observer: true,
+            observeParents: true
+        });
+
+        const logoSwiper = new Swiper('.logo-design', {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            loop: true,
+            observer: true,
+            observeParents: true,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1025: {
+                    slidesPerView: 4,
+                    spaceBetween: 30
+                }
+            }
+        });
+
+        const graphicSwiper = new Swiper('.graphic-design', {
+            slidesPerView: 1.15,
+            spaceBetween: 10,
+            loop: true,
+            observer: true,
+            observeParents: true,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1025: {
+                    slidesPerView: 4,
+                    spaceBetween: 30
+                }
+            }
+        });
+
+        const threeDSwiper = new Swiper('.threeD-graphic', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            observer: true,
+            observeParents: true,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 18
+                },
+                1025: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            }
+        });
+
+
+        AOS.init({
+            disable: function () {
+                return window.innerWidth <= 767;
+            }
+        });
+    </script>
+</body>
+
+</html>
