@@ -14,10 +14,17 @@
 
       // 반짝이 제거
       if (options === "destroy") {
+
         $.destroySparkle[id] = true;
+
         $this.data("sparkle-id", null);
+
         $(".my-sparkle").remove();
+
+        $(window).off(".sparkle-" + id);
+
         return;
+
       }
 
       const settings = $.extend({
@@ -59,11 +66,48 @@
 
       }, options);
 
+      // 현재 반짝이 생성이 멈춘 상태인지 확인
+      let paused = false;
+
       // 랜덤 정수 생성
       function randomNumber(min, max) {
+
         return Math.floor(
           Math.random() * (max - min + 1)
         ) + min;
+
+      }
+
+      // no-sparkle 영역이 화면 안에 충분히 들어왔는지 확인
+      function isExcludedAreaActive() {
+
+        let active = false;
+
+        $(settings.exclude).each(function () {
+
+          const rect = this.getBoundingClientRect();
+
+          /*
+            no-sparkle 영역의 윗부분이 화면 35% 지점보다 위에 있고,
+            아랫부분이 화면 65% 지점보다 아래에 있으면
+            해당 영역이 화면 중심부에 들어왔다고 판단
+          */
+          const isActive =
+            rect.top <= window.innerHeight * 0.35 &&
+            rect.bottom >= window.innerHeight * 0.65;
+
+          if (isActive) {
+
+            active = true;
+
+            return false;
+
+          }
+
+        });
+
+        return active;
+
       }
 
       // 제외 영역과 겹치는지 확인
@@ -97,13 +141,17 @@
             starRect.bottom > excludeRect.top;
 
           if (overlaps) {
+
             overlapping = true;
+
             return false;
+
           }
 
         });
 
         return overlapping;
+
       }
 
       // 같은 묶음의 다른 반짝이와 겹치는지 확인
@@ -121,6 +169,7 @@
           );
 
         });
+
       }
 
       // 안전한 위치 생성
@@ -138,26 +187,41 @@
 
         for (let i = 0; i < 150; i++) {
 
-          const left = Math.random() * maxLeft;
-          const top = Math.random() * maxTop;
+          const left =
+            Math.random() * maxLeft;
+
+          const top =
+            Math.random() * maxTop;
 
           const overExcluded =
-            isOverExcludedArea(left, top, size);
+            isOverExcludedArea(
+              left,
+              top,
+              size
+            );
 
           const overOtherStar =
-            isOverOtherStar(left, top, size, positions);
+            isOverOtherStar(
+              left,
+              top,
+              size,
+              positions
+            );
 
           if (!overExcluded && !overOtherStar) {
+
             return {
               left: left,
               top: top,
               size: size
             };
+
           }
 
         }
 
         return null;
+
       }
 
       // 반짝이 SVG 생성
@@ -189,27 +253,47 @@
             />
           </svg>
         `).css({
+
           position: "fixed",
+
           width: size + "px",
           height: size + "px",
+
           zIndex: 9999,
+
           pointerEvents: "none",
+
           display: "block",
+
           opacity: 0,
-          transform: "scale(0.3) rotate(0deg)",
+
+          transform:
+            "scale(0.3) rotate(0deg)",
+
           transformOrigin: "center",
-          willChange: "opacity, transform"
+
+          willChange:
+            "opacity, transform"
+
         });
+
       }
 
       // 반짝이 하나 애니메이션
       function animateStar(position) {
 
-        const $star = createStar(position.size);
+        if (paused) {
+          return;
+        }
+
+        const $star =
+          createStar(position.size);
 
         $star.css({
+
           left: position.left + "px",
           top: position.top + "px"
+
         });
 
         $this.append($star);
@@ -219,27 +303,51 @@
 
         // 천천히 나타나기
         $star.css({
+
           transition:
-            "opacity " + settings.fadeInDuration + "ms ease-out, " +
-            "transform " + settings.fadeInDuration + "ms ease-out",
+            "opacity " +
+            settings.fadeInDuration +
+            "ms ease-out, " +
+            "transform " +
+            settings.fadeInDuration +
+            "ms ease-out",
+
           opacity: 1,
-          transform: "scale(1) rotate(120deg)"
+
+          transform:
+            "scale(1) rotate(120deg)"
+
         });
 
         // 나타난 상태로 머문 뒤 천천히 사라지기
         window.setTimeout(function () {
 
+          if (!$star.closest("html").length) {
+            return;
+          }
+
           $star.css({
+
             transition:
-              "opacity " + settings.fadeOutDuration + "ms ease-in-out, " +
-              "transform " + settings.fadeOutDuration + "ms ease-in-out",
+              "opacity " +
+              settings.fadeOutDuration +
+              "ms ease-in-out, " +
+              "transform " +
+              settings.fadeOutDuration +
+              "ms ease-in-out",
+
             opacity: 0,
-            transform: "scale(0.75) rotate(220deg)"
+
+            transform:
+              "scale(0.75) rotate(220deg)"
+
           });
 
-        }, settings.fadeInDuration + settings.holdDuration);
+        },
+        settings.fadeInDuration +
+        settings.holdDuration);
 
-        // 완전히 사라진 뒤 요소 제거
+        // 완전히 사라진 뒤 제거
         window.setTimeout(function () {
 
           $star.remove();
@@ -255,9 +363,33 @@
       function createSparkleGroup() {
 
         if ($.destroySparkle[id]) {
+
           $(".my-sparkle").remove();
+
           return;
+
         }
+
+        // no-sparkle 영역이 활성화된 경우 생성 멈춤
+        if (isExcludedAreaActive()) {
+
+          paused = true;
+
+          $(".my-sparkle").remove();
+
+          window.setTimeout(function () {
+
+            if (!$.destroySparkle[id]) {
+              createSparkleGroup();
+            }
+
+          }, 300);
+
+          return;
+
+        }
+
+        paused = false;
 
         const count = randomNumber(
           settings.countMin,
@@ -274,7 +406,10 @@
           );
 
           const coordinates =
-            getSafeCoordinates(randomSize, positions);
+            getSafeCoordinates(
+              randomSize,
+              positions
+            );
 
           if (coordinates) {
             positions.push(coordinates);
@@ -283,7 +418,9 @@
         }
 
         positions.forEach(function (position) {
+
           animateStar(position);
+
         });
 
         const totalAnimationTime =
@@ -303,11 +440,37 @@
       }
 
       $.destroySparkle[id] = false;
+
       $this.data("sparkle-id", id);
 
+      // 첫 실행
       window.setTimeout(function () {
+
         createSparkleGroup();
+
       }, settings.delay);
+
+      // 스크롤 또는 화면 크기 변경 시 검사
+      $(window).on(
+        "scroll.sparkle-" + id +
+        " resize.sparkle-" + id,
+
+        function () {
+
+          if (isExcludedAreaActive()) {
+
+            paused = true;
+
+            $(".my-sparkle").remove();
+
+          } else {
+
+            paused = false;
+
+          }
+
+        }
+      );
 
     });
 
@@ -319,31 +482,27 @@
 // body 전체에 반짝이 실행
 $(function () {
 
+  // 768px 이하(태블릿/모바일)는 실행 안 함
+  if ($(window).width() <= 768) {
+    return;
+  }
+
   $("body").sparkle({
 
     fill: "#ffffff",
     stroke: "#999999",
 
-    // 각 반짝이 크기
     sizeMin: 12,
     sizeMax: 28,
 
-    // 한 번에 3개~5개
     countMin: 3,
     countMax: 5,
 
-    // 나타나는 데 1초
     fadeInDuration: 1000,
-
-    // 나타난 상태로 1초 머무름
     holdDuration: 1000,
-
-    // 1.6초 동안 천천히 사라짐
     fadeOutDuration: 1600,
 
-    // 다음 묶음까지 0.7초 대기
     pause: 700,
-
     delay: 0,
 
     exclude: ".no-sparkle",

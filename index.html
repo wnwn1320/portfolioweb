@@ -38,7 +38,9 @@
     <header class="no-sparkle">
         <div class="header-left">
             <h1 class="logo">
-                <img src="images/logo.png" alt="">
+                <a href="#">
+                    <img src="images/logo.png" alt="">
+                </a>
             </h1>
             <div class="language-switcher">
                 <button type="button" class="language-button" aria-expanded="false" aria-controls="language-menu">
@@ -106,9 +108,9 @@
                 <div class="keyring-position">
 
                     <!-- 키링 전체 묶음 -->
-                    <div class="keyring-set">
+                    <div class="keyring-set">   
                         <!-- 키링 툴팁 -->
-                        <div class="drag-tooltip">Drag Me!</div>
+                         <div class="drag-tooltip">Drag Me!</div>
                         <!-- 메인 고리 -->
                         <!-- 메인 고리 드래그 시 키링 전체 이동 -->
                         <img src="images/keyring/main-ring-part.png" alt="" class="main-ring keyring-handle"
@@ -170,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="resume intro-right" data-aos="fade-left">
+                    <div class="resume intro-right"  data-aos="fade-left">
                         <div class="resume-row">
                             <div class="resume-info">
                                 <h4 class="resume-title">
@@ -282,7 +284,7 @@
                     </ul>
                 </div>
             </section>
-            <div class="tab-items">
+            <div class="tab-items no-sparkle">
                 <section class="video-editing on">
                     <div class="inner swiper">
                         <h3>영상편집</h3>
@@ -562,11 +564,17 @@
         </div>
     </main>
     <footer>
-        <h3>Hi :) Contact Me!</h3>
+        <img src="images/footer-logo.png" alt="">
+        <h3>If you’re interested, please contact me.</h3>
         <div class="footer-adress">
             <p><a href="mailto:wnwn1320@gmail.com">wnwn1320@gmail.com</a></p>
             <p><a href="tel:010-5689-0286">+82 010-5689-0286</a></p>
         </div>
+        <span>This website is the personal portfolio of a web designer.<br>
+              Adobe Photoshop, Visual Studio Code (HTML, CSS, JavaScript), and Adobe Illustrator <br>
+              Adobe Premiere Pro and Adobe After Effects. Figma and Blender have been used for the site. <br>
+              Copyright © 2026 Ga Eun Jung. All rights reserved.
+        </span>
     </footer>
     <script>
         const videoSwiper = new Swiper('.video-editing .swiper', {
@@ -642,7 +650,7 @@
             }
         });
 
-
+        
         AOS.init({
             disable: function () {
                 return window.innerWidth <= 767;

@@ -13,7 +13,7 @@
   }
 }
 
-@-webkit-keyframes my-sparkle {
+@-webkit-keyframes my-sparkle { 
   0%   {
     opacity: 0;
     -webkit-transform: rotate(0deg) scale(0);
