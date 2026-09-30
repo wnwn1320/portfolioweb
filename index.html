@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GE's Portfolio | 한국어</title>
+    <meta name="title" content="GE's Portfolio">
+    <meta name="description" content="웹디자이너, 영상편집자 정가은의 웹 포트폴리오 사이트입니다.">
+    <meta name="keywords" content="포트폴리오, 웹디자이너, 영상편집">
+    <meta name="author" content="GE">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GE's Portfolio">
+    <meta property="og:title" content="GE's Portfolio">
+    <meta property="og:description" content="웹디자이너, 영상편집자 정가은의 웹 포트폴리오 사이트입니다.">
+    <meta property="og:image" content="images/meta-thumb.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/sparkle.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=39">
+    <script src="js/sparkle.jquery.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/language.js" defer></script>
+    <script src="js/keyring.js" defer></script>
+    <script src="js/index.js?v=33" defer></script>
+</head>
+
+<body>
+    <header class="no-sparkle">
+        <div class="header-left">
+            <h1 class="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="">
+                </a>
+            </h1>
+            <div class="language-switcher">
+                <button type="button" class="language-button" aria-expanded="false" aria-controls="language-menu">
+                    <span class="language-current">KO</span>
+                    <span class="language-arrow" aria-hidden="true"></span>
+                </button>
+
+                <div class="language-menu" id="language-menu">
+                    <p class="language-title">Language</p>
+
+                    <a href="index.html" data-lang="ko">
+                        <span>한국어</span>
+                        <small>KO</small>
+                    </a>
+
+                    <a href="index-en.html" data-lang="en">
+                        <span>English</span>
+                        <small>EN</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <ul class="menu">
+                <li class="on">영상편집</li>
+                <li>웹디자인</li>
+                <li>그래픽디자인</li>
+                <li>로고 디자인</li>
+                <li>3D 그래픽</li>
+            </ul>
+        </div>
+        <div class="menu-overlay"></div>
+        <div class="mobile-menu">
+            <button type="button" class="menu-close" aria-label="메뉴 닫기">
+                <span></span>
+                <span></span>
+            </button>
+            <h2>MENU</h2>
+            <ul>
+                <li class="active on">영상편집</li>
+                <li>웹디자인</li>
+                <li>그래픽 디자인</li>
+                <li>로고 디자인</li>
+                <li>3D 그래픽</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="banner">
+
+                <!-- 배경 이미지 -->
+                <picture class="banner-picture">
+
+                    <!-- 모바일 배경 -->
+                    <source media="(max-width: 767px)" srcset="images/m-banner.jpg">
+
+                    <!-- PC·태블릿 배경 -->
+                    <img src="images/pc-main-banner-no-object.jpg" alt="GE 포트폴리오 메인 배너" class="banner-bg">
+
+                </picture>
+
+
+                <!-- 키링 위치 영역 -->
+                <div class="keyring-position">
+
+                    <!-- 키링 전체 묶음 -->
+                    <div class="keyring-set">
+                        <!-- 키링 툴팁 -->
+                        <div class="drag-tooltip">Drag Me!</div>
+                        <!-- 메인 고리 -->
+                        <!-- 메인 고리 드래그 시 키링 전체 이동 -->
+                        <img src="images/keyring/main-ring-part.png" alt="" class="main-ring keyring-handle"
+                            draggable="false">
+
+
+                        <!-- 비즈 참 -->
+                        <img src="images/keyring/biz-charm.png" alt="" class="keyring-charm biz-charm" data-rotate="-8"
+                            draggable="false">
+
+
+                        <!-- GE 참 -->
+                        <img src="images/keyring/ge-charm.png" alt="" class="keyring-charm ge-charm" data-rotate="-7"
+                            draggable="false">
+
+
+                        <!-- 커서 참 -->
+                        <img src="images/keyring/cursor-charm.png" alt="" class="keyring-charm cursor-charm"
+                            data-rotate="4" draggable="false">
+
+
+                        <!-- 이름 비즈 참 -->
+                        <img src="images/keyring/name-charm.png" alt="" class="keyring-charm name-charm" data-rotate="8"
+                            draggable="false">
+
+
+                        <!-- 프로그램 키캡 참 -->
+                        <img src="images/keyring/skill-charm.png" alt="" class="keyring-charm skill-charm"
+                            data-rotate="-2" draggable="false">
+
+
+                        <!-- 별 참 -->
+                        <img src="images/keyring/star-charm.png" alt="" class="keyring-charm star-charm" data-rotate="9"
+                            draggable="false">
+                    </div>
+                </div>
+            </section>
+            <section class="introduce">
+                <div class="inner no-sparkle">
+                    <div class="intro-left">
+                        <div class="pic">
+                            <img src="images/증명사진.jpg">
+                        </div>
+                        <div class="hi-desc">
+                            <p>반갑습니다</p>
+                            <span>무한한 가능성과 잠재력의<br>
+                                소유자, 정가은입니다.</span>
+                            <div class="adress">
+                                <span>
+                                    <a href="">
+                                        010-5689-0286
+                                    </a>
+                                </span>
+                                <span>
+                                    <a href="">
+                                        wnwn1320@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume intro-right" data-aos="fade-left">
+                        <div class="resume-row">
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    경력
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            제이컴인터내셔널(사원)
+                                        </strong>
+                                        <span>
+                                            2023.02 - 2026.02
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            해피 CGI (사원)
+                                        </strong>
+                                        <span>
+                                            2021.11 - 2022.06
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            데일리데코(사원)
+                                        </strong>
+                                        <span>
+                                            2021.07 - 2021.09
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    자격증
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            그래픽기술자격 (GTQ) 1급
+                                        </strong>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            한글파워포인트 (한쇼) A
+                                        </strong>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            한글엑셀 (한셀) B
+                                        </strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="resume-row">
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    교육이수
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            그린컴퓨터아트학원<br>
+                                            디지털영상편집(프리미어프로,<br> 에프터이펙트, 블렌더)
+                                        </strong>
+                                        <span>
+                                            2026.04 - 2026.10
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>
+                                            그린컴퓨터아트학원 웹디자인<br> 구직자양성과정
+                                        </strong>
+                                        <span>
+                                            2021.02 - 2021.07
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resume-info">
+                                <h4 class="resume-title">
+                                    어학연수
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <strong>
+                                            뉴질랜드<br>(대구광역시교육청 글로벌사업 학생 선정)
+                                        </strong>
+                                        <span>
+                                            2019.09 - 2020.09
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="tab">
+                <div class="inner no-sparkle">
+                    <h2>What is she capable of?</h2>
+                    <ul class="tab-menu" data-aos="fade-up">
+                        <li class="on">영상편집</li>
+                        <li>웹디자인</li>
+                        <li>그래픽디자인</li>
+                        <li>로고 디자인</li>
+                        <li>3D 그래픽</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="tab-items no-sparkle">
+                <section class="video-editing on">
+                    <div class="inner swiper">
+                        <h3>영상편집</h3>
+                        <div class="swiper-wrapper">
+                            <!-- MUSUE Branding: 아래 data- 항목을 수정하면 카드와 모달에 반영됩니다. -->
+                            <div class="swiper-slide" data-title="MUSUE Branding"
+                                data-main-video="https://www.youtube.com/embed/HniXhLWaNQk?si=klGVutPGAa4k_1b_"
+                                data-short-video="https://www.youtube.com/embed/-wXeps7O-40"
+                                data-overview="MUSUE는 신화 속 뮤즈와 현대 여성의 자기표현을 결합한 가상 코스메틱 브랜딩 프로젝트입니다.&lt;br&gt;&lt;br&gt;SNS 속 획일화된 아름다움의 기준에서 벗어나, 개인이 자신의 고유한 분위기와 아름다움을 발견할 수 있도록 브랜드 콘셉트, 비주얼 아이덴티티, 제품 디자인, 영상 콘텐츠까지 통합적으로 기획했습니다."
+                                data-project-type="Cosmetic Branding / AI Visual Production"
+                                data-project-goal="자기표현 중심의 색조 코스메틱 브랜드 구축"
+                                data-project-scope="Brand Concept, Logo, Package, Product Visual, Motion Film"
+                                data-project-role="기획, 리서치, 비주얼 디렉션, 프롬프트 설계, 영상 편집"
+                                data-planning="프로젝트 목표와 타깃, 콘셉트, 콘텐츠 구성 및 제작 방향을 정리했습니다."
+                                data-planning-link="https://www.figma.com/deck/ugkdVmFSzHIxq0CHmGHEUo/MUSUE-%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=1-42&amp;t=hNlp51SowZSZVLNz-1"
+                                data-tasks="&lt;li&gt;콘셉트 기획 및 비주얼 방향 설정&lt;/li&gt;&lt;li&gt;디자인 제작 및 디테일 보정&lt;/li&gt;"
+                                data-tools="Premiere Pro · After Effects" data-contribution="100%">
+                                <iframe src="https://www.youtube.com/embed/HniXhLWaNQk?si=klGVutPGAa4k_1b_" title="MUSUE Branding" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <!-- 영상편집 02: 아래 data- 항목을 수정하면 카드와 모달에 반영됩니다. -->
+                            <div class="swiper-slide shorts-slide" data-title="Angel Core"
+                                data-video="https://www.youtube.com/embed/Ye0f9qGRzDM?playsinline=1&amp;origin=http%3A%2F%2F127.0.0.1%3A5500&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Ye0f9qGRzDM"
+                                data-overview="4시간의 제한된 제작 시간 안에 이미지 생성부터 영상화, 편집까지 완성한 15초 분량의 AI 비주얼 필름입니다. <br>
+                                Chat GPT로 기본적인 스토리보드 이미지와 프롬프트를, Google Flow로 영상을 제작했고, Premire Pro로 흐름에 맞게 컷편집 / 배경음악을 넣어<br> 후처리했습니다. <br>
+                                리미널 스페이스와 엔젤코어를 결합하여 현실적인 공간에 비현실적인 천사가 등장하는 장면을 연출했습니다."
+                                data-planning="[생성형 AI를 활용해 짧은 시간 안에 일관된 캐릭터와 세계관을 구축할 수 있을까?]를 목적으로 기획한 작업물입니다.<br><br>
+                                생성형 AI로 여러 장면을 제작할 경우 인물의 외형이 달라지거나 영상 전체의 분위기가 흔들리는 경우가 많습니다. 이러한 한계를 보완하면서도 하나의 연결된 영상으로 완성할 수 있는지를 확인하고자 했습니다.<br><br>
+                                제작 시간은 4시간, 영상 길이는 15초 이내로 제한했으며, 동일한 주인공과 세계관을 유지하는 짧은 비주얼 필름을 목표로 설정했습니다. 이를 통해 이미지 생성부터 영상화와 편집까지 이어지는 제작 과정의 가능성과 효율성을 함께 확인하고자 했습니다."
+                                data-planning-image="images/moodboard_reference-web.webp"
+                                data-planning-image-alt="Angel Core 무드보드 및 프롬프트 작업 과정"
+                                data-tasks="&lt;li&gt;비주얼 콘셉트 및 캐릭터 설정&lt;/li&gt;&lt;li&gt;AI 이미지 생성과 프롬프트 설계&lt;/li&gt;&lt;li&gt;인물·의상·배경의 장면 일관성 보정&lt;/li&gt;&lt;li&gt;영상 생성 및 최종 편집·색보정&lt;/li&gt;"
+                                data-tools="ChatGPT · Google Flow · Premiere Pro" data-contribution="100%">
+
+                                <iframe
+                                    src="https://www.youtube.com/embed/Ye0f9qGRzDM?playsinline=1&amp;origin=http%3A%2F%2F127.0.0.1%3A5500&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Ye0f9qGRzDM"
+                                    title="Angel core" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        <button class="video-swiper-button video-swiper-prev" type="button" aria-label="이전 영상">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M15.5 3.5 6.5 12l9 8.5" />
+                            </svg>
+                        </button>
+                        <button class="video-swiper-button video-swiper-next" type="button" aria-label="다음 영상">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m8.5 3.5 9 8.5-9 8.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+                <section class="web-design">
+                    <div class="inner">
+                        <h3>웹디자인</h3>
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" data-title="오너라 반응형 웹 플랫폼"
+                                    data-detail-image="images/web/onera/desktop-home-web.webp"
+                                    data-pc-images="images/web/onera/desktop-home-web.webp|images/web/onera/desktop-login.png|images/web/onera/desktop-notice.png|images/web/onera/desktop-product-list.jpg|images/web/onera/desktop-product-detail-web.webp|images/web/onera/desktop-quote-card-payment.png|images/web/onera/desktop-order-history.png"
+                                    data-pc-labels="데스크톱 메인 페이지|데스크톱 로그인 페이지|데스크톱 공지사항 페이지|데스크톱 상품 목록 페이지|데스크톱 상품 상세 페이지 — 안마의자|데스크톱 견적 작성 페이지 — 카드결제|데스크톱 주문 내역 페이지"
+                                    data-mobile-images="images/web/onera/mobile-home.png|images/web/onera/mobile-login.png|images/web/onera/mobile-notice.png|images/web/onera/mobile-search-results.png|images/web/onera/mobile-product-list-filter.png|images/web/onera/mobile-product-detail.png|images/web/onera/mobile-quote-card-payment.png|images/web/onera/mobile-order-history.png"
+                                    data-mobile-labels="모바일 메인 페이지|모바일 로그인 페이지|모바일 공지사항 페이지|모바일 검색 결과 페이지|모바일 상품 목록 및 검색 필터|모바일 상품 상세 페이지 — 안마의자|모바일 견적 작성 페이지 — 카드결제|모바일 주문 내역 페이지"
+                                    data-admin-images="images/web/onera/admin-dashboard.png|images/web/onera/admin-notice-list.png|images/web/onera/admin-notice-create.png|images/web/onera/admin-category-management.png|images/web/onera/admin-promotion-management.png|images/web/onera/admin-promotion-preview.png|images/web/onera/admin-contract-management.png|images/web/onera/admin-settlement-management.png|images/web/onera/admin-partner-create.png"
+                                    data-admin-labels="관리자 대시보드|공지사항 관리|공지사항 작성|카테고리 관리|프로모션 관리|프로모션 미리보기|계약 관리|정산 관리|협력업체 등록"
+                                    data-overview="렌탈·관리 서비스 이용자를 위한 오너라 반응형 웹 플랫폼 디자인입니다. 고객용 메인·상품 상세·견적 작성 흐름과 운영자를 위한 관리자 대시보드까지 하나의 서비스 경험으로 설계했습니다. 현재는 실제 출시를 준비 중인 프로젝트입니다.<br>소요기간 : 4개월"
+                                    data-tasks="&lt;li&gt;고객용 PC·모바일 반응형 화면 설계&lt;/li&gt;&lt;li&gt;상품 상세 및 견적 작성 사용자 흐름 구성&lt;/li&gt;&lt;li&gt;제품군별 목록 화면과 관리자 대시보드 디자인&lt;/li&gt;"
+                                    data-tools="Figma · Photoshop" data-contribution="100%">
+                                    <img src="images/web/onera/desktop-home-thumb.webp" alt="오너라 데스크톱 메인 화면" loading="lazy">
+                                    <div class="web-desc">
+                                        <strong>
+                                            오너라
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                렌탈·관리 서비스의 고객용 웹과 관리자 페이지를 함께 구성한<br>
+                                                반응형 플랫폼 디자인 프로젝트입니다.
+                                            </p>
+                                            <ul>
+                                                <li>PC·모바일 반응형 UI/UX 디자인</li>
+                                                <li>상품·견적·관리자 화면 설계</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" data-title="Zenir 웹 디자인"
+                                    data-detail-image="images/web/zenir/PC_main_fullpage_fix.jpg"
+                                    data-pc-images="images/web/zenir/PC_main_fullpage_fix.jpg|images/web/zenir/PC_Product_detail.jpg|images/web/zenir/PC_Product_list_us.jpg|images/web/zenir/PC_about.jpg"
+                                    data-pc-labels="Zenir 데스크톱 메인 페이지|Zenir 상품 상세 페이지|Zenir 상품 목록 페이지|Zenir 브랜드 소개 페이지">
+                                    <img src="images/web/zenir/PC_main_fullpage_fix.jpg" alt="Zenir 웹디자인 메인 화면" loading="lazy">
+                                    <div class="web-desc">
+                                        <strong>
+                                            Zenir
+                                        </strong>
+                                        <div class="web-desc-text">
+                                            <p>
+                                                Shopify 기반 의료 스크럽복 브랜드 ZENIR의 자사몰 구축 및
+                                                운영을<br>
+                                                담당했습니다.쇼피파이 Liquid를 활용한 커스텀 섹션 제작,<br> 메인 페이지 및 컬렉션 페이지 디자인, 서드파티 앱과
+                                                리퀴드를
+                                                혼용해<br>
+                                                반응형 웹 구현 등을 진행했으며<br>
+                                                브랜드 방향성에 맞는 UI/UX 개선 작업을 수행했습니다.
+                                            </p>
+                                            <ul>
+                                                <li>Shopify Liquid 기반 커스텀 섹션 제작</li>
+                                                <li>메인페이지 및 컬렉션 페이지 디자인 · 유지보수</li>
+                                                <li>서드파티 앱 연동 및 설정</li>
+                                                <li>
+                                                    <div class="skill">
+                                                        <img src="images/adobe-photoshop-logo-2021.svg"
+                                                            alt="Photoshop Logo">
+                                                        <img src="images/shopify-logo-png-transparent.png"
+                                                            alt="Shopify logo">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="web-swiper-button web-swiper-prev" type="button" aria-label="이전 웹 프로젝트">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.5 6.5 12l9 8.5" /></svg>
+                            </button>
+                            <button class="web-swiper-button web-swiper-next" type="button" aria-label="다음 웹 프로젝트">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.5 3.5 9 8.5-9 8.5" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="graphic-design swiper inner">
+                    <h3>그래픽 디자인</h3>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide long-page-project" data-title="생모단 180 상세페이지"
+                            data-detail-image="images/graphic/생모단180-상세페이지.jpg"
+                            data-overview="생모단 180 제품의 정보를 효과적으로 전달할 수 있도록 구성한 롱폼 상세페이지 디자인입니다."
+                            data-tasks="&lt;li&gt;제품 정보 구조 및 콘텐츠 흐름 구성&lt;/li&gt;&lt;li&gt;상세페이지 비주얼 디자인&lt;/li&gt;&lt;li&gt;웹 게시용 이미지 제작&lt;/li&gt;"
+                            data-tools="Photoshop" data-contribution="100%">
+                            <span>01</span>
+                            <img src="images/graphic/생모단180-상세페이지.jpg" alt="생모단 180 제품 상세페이지" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" data-title="칼과 심장 앨범 아트"
+                            data-detail-images="images/graphic/album-art-cover-web.webp|images/graphic/album-art-mockup-web.webp"
+                            data-overview="디자인 스터디에서 제시된 ‘칼’과 ‘심장’이라는 두 가지 키워드를 바탕으로 제작한 콘셉트 앨범 아트입니다. 어두운 질감과 강한 명암, 금속성 타이포그래피를 활용해 긴장감 있는 비주얼을 구성했습니다."
+                            data-tasks="&lt;li&gt;키워드 해석 및 비주얼 콘셉트 설정&lt;/li&gt;&lt;li&gt;이미지 합성과 타이포그래피 디자인&lt;/li&gt;&lt;li&gt;앨범 패키지 목업 제작&lt;/li&gt;"
+                            data-tools="Photoshop" data-contribution="100%">
+                            <span>02</span>
+                            <img src="images/graphic/album-art-cover-thumb.webp" alt="칼과 심장 키워드를 활용한 콘셉트 앨범 아트" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" data-title="웨딩 포스터 디자인"
+                            data-detail-images="images/graphic/wedding-poster-a-web.webp|images/graphic/wedding-poster-b-web.webp"
+                            data-overview="실제 결혼식을 위해 제작한 웨딩 포스터입니다. 두 사람의 자연스러운 사진을 중심으로 영화 포스터형 구성과 콜라주형 구성의 A/B 시안을 제작했습니다."
+                            data-tasks="&lt;li&gt;사진 선정 및 색감 보정&lt;/li&gt;&lt;li&gt;서로 다른 방향의 A/B 시안 구성&lt;/li&gt;&lt;li&gt;행사 정보와 메시지를 고려한 타이포그래피 배치&lt;/li&gt;"
+                            data-tools="Photoshop" data-contribution="100%">
+                            <span>03</span>
+                            <img src="images/graphic/wedding-poster-a-thumb.webp" alt="실제 결혼식을 위해 제작한 웨딩 포스터 A안" loading="lazy">
+                        </div>
+                        <div class="swiper-slide" data-title="DotsMine Studio 명함 디자인"
+                            data-detail-images="images/graphic/dotsmine-business-card.png|images/graphic/dotsmine-business-card-mockup-web.webp"
+                            data-overview="실제 업체의 의뢰를 받아 제작하고 현재 사용 중인 명함 디자인입니다. 마인크래프트 서버 제작 스튜디오의 성격을 반영해 픽셀 그래픽과 블랙·옐로 컬러를 중심으로 아이덴티티를 구성했습니다."
+                            data-tasks="&lt;li&gt;업체 특성과 사용 목적 분석&lt;/li&gt;&lt;li&gt;명함 앞·뒷면 레이아웃 디자인&lt;/li&gt;&lt;li&gt;인쇄 적용을 고려한 정보 구조와 목업 제작&lt;/li&gt;"
+                            data-tools="Photoshop" data-contribution="100%">
+                            <span>04</span>
+                            <img src="images/graphic/dotsmine-business-card-mockup-thumb.webp" alt="DotsMine Studio 명함 목업" loading="lazy">
+                        </div>
+                    </div>
+                </section>
+                <section class="logo-design swiper inner">
+                    <h3>로고 디자인</h3>
+                    <div class="logo-box swiper-wrapper">
+                        <div class="swiper-slide" data-title="GE 퍼스널 아이덴티티"
+                            data-overview="개인 포트폴리오의 시각적 정체성을 위해 제작한 GE 워드마크입니다. 유기적인 곡선과 선명한 라임 컬러를 활용해 자유롭고 개성 있는 이미지를 표현했습니다."
+                            data-tasks="&lt;li&gt;G와 E를 결합한 유기적 워드마크 디자인&lt;/li&gt;&lt;li&gt;포트폴리오 전반에 적용할 시그니처 컬러와 형태 구성&lt;/li&gt;"
+                            data-tools="Illustrator" data-contribution="100%">
+                            <img src="images/logo/ge-personal-logo.png" alt="GE 개인 포트폴리오 로고">
+                        </div>
+                        <div class="swiper-slide" data-title="오너라 로고 디자인"
+                            data-overview="렌탈·관리 플랫폼 오너라의 서비스 아이덴티티를 위해 제작한 로고 디자인입니다."
+                            data-tasks="&lt;li&gt;브랜드 워드마크 및 심볼 디자인&lt;/li&gt;&lt;li&gt;서비스 화면을 고려한 컬러와 형태 정리&lt;/li&gt;"
+                            data-tools="Illustrator" data-contribution="100%">
+                            <img src="images/logo/onera-logo.png" alt="오너라 종합 렌탈 플랫폼 로고">
+                        </div>
+                        <div class="swiper-slide" data-title="MUSUE 로고 디자인"
+                            data-overview="신화 속 뮤즈와 현대 여성의 자기표현을 결합한 가상 코스메틱 브랜드 MUSUE의 로고 디자인입니다."
+                            data-tasks="&lt;li&gt;브랜드 콘셉트에 맞는 워드마크 디자인&lt;/li&gt;&lt;li&gt;뷰티 브랜드의 우아한 인상을 위한 곡선형 타이포그래피 구성&lt;/li&gt;"
+                            data-tools="Illustrator" data-contribution="100%">
+                            <img src="images/logo/musue-logo.png" alt="MUSUE 코스메틱 브랜드 로고">
+                        </div>
+                        <div class="swiper-slide" data-title="아름다운 삶의 공간 로고 디자인"
+                            data-overview="홈페이지 리뉴얼 팀 프로젝트 ‘아름다운 삶의 공간’의 로고 디자인입니다."
+                            data-tasks="&lt;li&gt;숙소가 연상되도록 집 지붕 모양을 연결  &lt;/li&gt;&lt;li&gt;한글 워드마크와 슬로건 조합 구성&lt;/li&gt;"
+                            data-tools="Illustrator" data-contribution="100%">
+                            <img src="images/logo/asalmgong-logo.png" alt="아름다운 삶의 공간 로고">
+                        </div>
+                    </div>
+                    <div class="pagenation">
+                        <div class="sw-next"></div>
+                        <div class="sw-prev"></div>
+                    </div>
+                </section>
+                <section class="threeD-graphic inner">
+                    <h3>3D 그래픽</h3>
+                    <div class="threeD-project-list">
+                        <div class="swiper-slide" data-title="EVE 캐릭터 모델링"
+                            data-videos="https://www.youtube.com/embed/U6VTMIFZaho|https://www.youtube.com/embed/td6QW_H_lRU"
+                            data-video-labels="데스크탑 펫 소개영상|댄싱 애니메이션"
+                            data-overview-tab-label="프로젝트 소개"
+                            data-tasks-tab-label="주요 작업"
+                            data-tools-tab-label="사용 툴"
+                            data-overview="Blender에서 익힌 모델링, 마테리얼, 리깅을 종합적으로 활용해 보고자 제작한 캐릭터입니다. 캐릭터를 직접 디자인하고, ChatGPT를 활용해 만든 삼면도를 바탕으로 모델링을 진행했습니다.&lt;br&gt;&lt;br&gt;리깅 숙련도를 높이기 위해 간단한 애니메이션을 제작했으며, 완성된 모델은 ChatGPT의 도움을 받아 데스크톱 펫으로도 구현했습니다.&lt;br&gt;&lt;br&gt;장면을 구성하는 책상과 모니터 화면은 직접 제작했으며, 의자·키보드·마우스는 에셋 라이브러리를 활용했습니다."
+                            data-tasks="&lt;li&gt;캐릭터 디자인 및 삼면도 제작&lt;/li&gt;&lt;li&gt;Blender 모델링·마테리얼·리깅&lt;/li&gt;&lt;li&gt;캐릭터 애니메이션 및 데스크톱 펫 구현&lt;/li&gt;&lt;li&gt;책상과 모니터 화면 제작 및 장면 구성&lt;/li&gt;"
+                            data-tools="Blender · ChatGPT" data-contribution="100%">
+                            <img src="images/model.png" alt="EVE 캐릭터 3D 모델" loading="lazy">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <img src="images/footer-logo.png" alt="">
+        <h3>If you’re interested, please contact me.</h3>
+        <div class="footer-adress">
+            <p><a href="mailto:wnwn1320@gmail.com">wnwn1320@gmail.com</a></p>
+            <p><a href="tel:010-5689-0286">+82 010-5689-0286</a></p>
+        </div>
+        <span>This website is the personal portfolio of a web designer.<br>
+            Adobe Photoshop, Visual Studio Code (HTML, CSS, JavaScript), and Adobe Illustrator <br>
+            Adobe Premiere Pro and Adobe After Effects. Figma and Blender have been used for the site. <br>
+            Copyright © 2026 Ga Eun Jung. All rights reserved.
+        </span>
+    </footer>
+    <script>
+        const videoSwiper = new Swiper('.video-editing .swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                prevEl: '.video-swiper-prev',
+                nextEl: '.video-swiper-next'
+            }
+        });
+
+        const webSwiper = new Swiper('.web-design .swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                prevEl: '.web-swiper-prev',
+                nextEl: '.web-swiper-next'
+            }
+        });
+
+        const logoSwiper = new Swiper('.logo-design', {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            loop: true,
+            observer: true,
+            observeParents: true,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1025: {
+                    slidesPerView: 4,
+                    spaceBetween: 30
+                }
+            }
+        });
+
+        const graphicSwiper = new Swiper('.graphic-design', {
+            slidesPerView: 1.15,
+            spaceBetween: 10,
+            loop: true,
+            observer: true,
+            observeParents: true,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1025: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+
+        AOS.init({
+            disable: function () {
+                return window.innerWidth <= 767;
+            }
+        });
+    </script>
+</body>
+
+</html>
