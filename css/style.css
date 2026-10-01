@@ -1259,7 +1259,15 @@ body.project-modal-open { overflow: hidden; }
 .project-summary dl, .project-summary dl div { margin: 0; }
 .project-summary dl div { display: grid; grid-template-columns: 82px minmax(0,1fr); gap: 8px; margin-top: 5px; font-size: 12px; line-height: 1.45; }
 .project-summary dt { color: #c8ff18; font-weight: 700; }
-.project-summary dd { min-width: 0; margin: 0; overflow: hidden; color: #cfcfcf; text-overflow: ellipsis; white-space: nowrap; }
+.project-summary dd {
+    min-width: 0;
+    margin: 0;
+    overflow: visible;
+    color: #cfcfcf;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
 .portfolio-project .project-visual { margin-bottom: 0; border-radius: 8px 8px 0 0; }
 .portfolio-project .project-preview { display: grid; inset: 0; place-items: center; padding: 18px; background: rgba(0,0,0,.64); opacity: 0; transform: none; transition: opacity .25s ease; }
 .portfolio-project .project-visual:hover .project-preview,
