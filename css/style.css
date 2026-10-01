@@ -1032,6 +1032,7 @@ header {
 .project-preview dd { margin: 0; }
 .project-detail-button { margin-top: 18px; padding: 10px 17px; color: #101010; font: inherit; font-weight: 700; background: #c8ff18; border: 0; border-radius: 999px; cursor: pointer; }
 .web-design .portfolio-project>.web-desc { display: none; }
+.project-details { display: none; }
 
 /* 프로젝트 상세 모달 */
 body.project-modal-open { overflow: hidden; }
@@ -1148,6 +1149,15 @@ body.project-modal-open { overflow: hidden; }
 }
 .project-detail-gallery--mobile img { width: min(100%, 430px); }
 .project-detail-gallery--mobile figcaption { width: min(100%, 430px); }
+.project-detail-gallery--continuous {
+    display: block;
+    overflow: visible;
+    padding: 8px 0 20px;
+    scroll-snap-type: none;
+}
+.project-detail-gallery--continuous figure { width: min(100%, 900px); margin: 0 auto; }
+.project-detail-gallery--continuous img { width: 100%; margin: 0; border-radius: 0; }
+.project-detail-slider:has(.project-detail-gallery--continuous) .project-detail-slider__button { display: none; }
 .project-detail-slider { position: relative; padding-bottom: 30px; }
 .project-detail-slider__button {
     position: absolute;
@@ -1198,6 +1208,13 @@ body.project-modal-open { overflow: hidden; }
 }
 .web-swiper-prev { left: 14px; }
 .web-swiper-next { right: 14px; }
+.graphic-swiper-prev { left: 14px; }
+.graphic-swiper-next { right: 14px; }
+.graphic-design > .graphic-swiper-prev,
+.graphic-design > .graphic-swiper-next {
+    position: absolute;
+    top: var(--graphic-nav-center, 50%);
+}
 .web-swiper-button svg { width: 28px; height: 38px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .web-swiper-button:hover,
 .web-swiper-button:focus-visible { background: rgba(0, 0, 0, .75); }
@@ -1500,8 +1517,7 @@ footer .footer-adress p:first-child {
 
     .introduce .intro-left .pic img {
         display: block;
-
-        width: 100%;
+        width: 50%;
         height: auto;
     }
 
@@ -1760,7 +1776,7 @@ footer .footer-adress p:first-child {
 
     .introduce .intro-left .pic img {
         display: block;
-        width: 100%;
+        width: 50%;
         height: auto;
     }
 
@@ -1926,69 +1942,6 @@ footer .footer-adress p:first-child {
     .project-summary { min-height: 122px; padding: 15px; }
     .project-summary>strong { font-size: 15px; }
     .project-summary dl div { grid-template-columns: 72px minmax(0,1fr); font-size: 10px; }
-
-/* 카드 호버 패널 최종 동작 */
-.video-editing .portfolio-project,
-.web-design .portfolio-project,
-.graphic-design .portfolio-project,
-.logo-design .portfolio-project,
-.threeD-graphic .portfolio-project,
-.planning-design .portfolio-project { position: relative; display: flex; flex-direction: column; height: auto; overflow: hidden; border-radius: 10px; }
-.video-editing .project-visual,
-.planning-design .project-visual { position: relative; width: 100%; overflow: hidden; border-radius: 10px; }
-.portfolio-project .project-visual,
-.portfolio-project .project-visual>img { border-radius: 10px; }
-.portfolio-project .project-summary { position: absolute; z-index: 2; right: 0; bottom: 0; left: 0; min-height: 0; margin: 0; padding: 18px 20px 20px; background: rgba(24,24,24,.96); border: 0; border-radius: 10px; transform: translateY(calc(100% - 58px)); transition: transform .35s cubic-bezier(.22,.61,.36,1); }
-.portfolio-project .project-visual:hover .project-summary,
-.portfolio-project .project-visual:focus-within .project-summary { transform: translateY(0); }
-.portfolio-project .project-summary__detail { opacity: 0; transition: opacity .2s ease .08s; }
-.portfolio-project .project-visual:hover .project-summary__detail,
-.portfolio-project .project-visual:focus-within .project-summary__detail { opacity: 1; }
-.portfolio-project .project-summary>strong { margin-bottom: 16px; }
-.portfolio-project .project-detail-button { margin-top: 16px; }
-.web-design .swiper { margin-top: 38px; }
-.planning-design { padding: 70px 0 90px; overflow: hidden; }
-.planning-design h3 { color: #d7ff5f; }
-.planning-design .project-visual>img { display: block; width: 100%; height: auto; }
-
-@media screen and (max-width: 767px) {
-    .portfolio-project .project-summary { position: static; transform: none; border-radius: 10px; }
-    .portfolio-project .project-summary__detail { opacity: 1; }
-    .web-design .swiper { margin-top: 28px; }
-    .planning-design { width: calc(100% - 30px); padding: 0 0 55px; }
-}
-
-/* 요청 시안: 기본 제목 → 호버 시 정보 패널 */
-.graphic-design .portfolio-project>span { display: block; }
-.portfolio-project { overflow: visible !important; }
-.portfolio-project .project-visual { position: relative; overflow: hidden; }
-.portfolio-project .project-visual::after { position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.76) 100%); opacity: 0; transition: opacity .35s ease; content: ''; }
-.portfolio-project .project-summary { transform: translateY(100%); }
-.portfolio-project .project-summary__detail { opacity: 1; }
-.portfolio-project .project-card-title { width: 100%; min-height: 52px; margin: 0; padding: 14px 4px 0; color: #fff; font-size: 20px; font-weight: 700; line-height: 1.3; transition: opacity .2s ease, visibility .2s ease; }
-.web-design .portfolio-project .project-card-title { width: 40%; }
-.portfolio-project:hover .project-visual::after,
-.portfolio-project.is-expanded .project-visual::after { opacity: 1; }
-.portfolio-project:hover .project-summary,
-.portfolio-project.is-expanded .project-summary { transform: translateY(0); }
-.portfolio-project:hover .project-card-title,
-.portfolio-project.is-expanded .project-card-title { visibility: hidden; opacity: 0; }
-.portfolio-project .project-summary>strong { font-size: 20px; }
-.portfolio-project .project-summary dl div { grid-template-columns: 100px minmax(0,1fr); font-size: 13px; }
-.portfolio-project .project-detail-button { display: block; margin: 18px 0 0 auto; }
-
-@media screen and (max-width: 767px) {
-    .portfolio-project .project-summary { position: absolute; transform: translateY(100%); }
-    .portfolio-project .project-summary__detail { opacity: 1; }
-    .portfolio-project .project-card-title { min-height: 44px; padding-top: 11px; font-size: 15px; }
-    .portfolio-project .project-summary>strong { font-size: 16px; }
-    .portfolio-project .project-summary dl div { grid-template-columns: 78px minmax(0,1fr); font-size: 11px; }
-    .web-design .portfolio-project .project-card-title { width: 88%; }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .web-design .portfolio-project .project-card-title { width: 58%; }
-}
 
     .web-desc {
         width: 100%;
@@ -2402,33 +2355,11 @@ footer .footer-adress p:first-child {
     display: block;
 }
 
-/* 세로로 긴 상세페이지는 카드 안에서만 상단 기준으로 잘라 썸네일로 표시 */
-.graphic-design .portfolio-project.long-page-project .project-visual {
-    position: relative;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-}
-
+/* 긴 상세페이지 썸네일도 다른 그래픽 카드와 같은 박스 구조를 사용하고 이미지만 상단 기준으로 자른다. */
 .graphic-design .portfolio-project.long-page-project .project-visual > img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top center;
-}
-
-.graphic-design .portfolio-project.long-page-project .project-summary {
-    inset: auto 0 0 !important;
-    box-sizing: border-box;
-}
-
-.graphic-design .portfolio-project.long-page-project .project-card-title {
-    position: relative;
-    z-index: 3;
-    background: #080808;
 }
 
 .logo-design .logo-box .portfolio-project {
@@ -2466,6 +2397,10 @@ footer .footer-adress p:first-child {
 }
 
 @media screen and (max-width: 767px) {
+    .web-design .swiper {
+        margin-top: 28px;
+    }
+
     .portfolio-project .project-summary {
         padding: 18px 20px;
     }

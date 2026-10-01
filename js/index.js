@@ -371,6 +371,7 @@ $(function () {
 
     function projectData($slide) {
         const $desc = $slide.find('.web-desc').first();
+        const $details = $slide.find('.project-details').first();
         const $skill = $desc.find('.skill').first();
         const $section = $slide.closest('.tab-items > section');
         const index = $slide.index() + 1;
@@ -382,17 +383,43 @@ $(function () {
         const type = isVideo ? copy.video : isWeb ? 'WEB DESIGN' : isGraphic ? copy.graphic : isLogo ? copy.logo : isPlanning ? copy.planning : copy.threeD;
         const defaultTools = isVideo ? 'Premiere Pro · After Effects' : isGraphic ? 'Photoshop · Illustrator' : isLogo ? 'Illustrator' : isPlanning ? 'PowerPoint · Figma' : 'Blender';
         const rawSrc = $slide.children('img').attr('src') || $slide.find('.project-visual > img').attr('src') || '';
-        const baseVideoUrl = $slide.attr('data-video') || $slide.attr('data-main-video') || $slide.find('iframe').first().attr('src') || sampleVideoUrl;
-        const mainVideoSource = $slide.attr('data-main-video') || baseVideoUrl;
-        const shortVideoSource = $slide.attr('data-short-video') || '';
+        const detailMainVideo = $details.find('.project-main-video').first().attr('href') || '';
+        const detailShortVideo = $details.find('.project-short-video').first().attr('href') || '';
+        const baseVideoUrl = detailMainVideo || $slide.attr('data-video') || $slide.attr('data-main-video') || $slide.find('iframe').first().attr('src') || sampleVideoUrl;
+        const mainVideoSource = detailMainVideo || $slide.attr('data-main-video') || baseVideoUrl;
+        const shortVideoSource = detailShortVideo || $slide.attr('data-short-video') || '';
         const videoUrl = isVideo ? videoEmbedUrl(baseVideoUrl) : '';
         const fileTitle = decodeURIComponent(rawSrc.split('/').pop() || '').replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
         const numberedTitle = `${type} ${String(index).padStart(2, '0')}`;
         const tools = $skill.find('img').map(function () {
             return this.alt.replace(/\s*(logo)?$/i, '').trim();
         }).get().filter(Boolean);
+        const gallery = function (name) {
+            const $items = $details.find(`.project-gallery--${name} figure`);
+            return {
+                images: $items.find('img').map(function () { return $(this).attr('src'); }).get().filter(Boolean),
+                labels: $items.map(function () {
+                    return $.trim($(this).find('figcaption').first().text()) || $(this).find('img').attr('alt') || '';
+                }).get()
+            };
+        };
+        const pcGallery = gallery('pc');
+        const mobileGallery = gallery('mobile');
+        const adminGallery = gallery('admin');
+        const processGallery = gallery('process');
+        const detailsTitle = $.trim($details.find('.project-title').first().text());
+        const detailsOverview = $details.find('.project-overview').first().html();
+        const detailsTasks = $details.find('.project-tasks > li').map(function () { return `<li>${$(this).html()}</li>`; }).get().join('');
+        const detailsTools = $.trim($details.find('.project-tools').first().text());
+        const detailsContribution = $.trim($details.find('.project-contribution').first().text());
+        const detailGallery = gallery('detail');
+        const detailVideos = $details.find('.project-videos a').map(function () { return $(this).attr('href'); }).get().filter(Boolean);
+        const detailVideoLabels = $details.find('.project-videos a').map(function () { return $.trim($(this).text()); }).get();
+        const detailPlanning = $details.find('.project-planning').first().html();
+        const detailPlanningLink = $details.find('.project-planning-link').first().attr('href') || '';
+        const $detailPlanningImage = $details.find('.project-planning-image').first();
         return {
-            title: $slide.attr('data-title') || $.trim($desc.find('strong').first().text()) || (isLogo && !/^https?:/.test(rawSrc) ? fileTitle : numberedTitle),
+            title: detailsTitle || $slide.attr('data-title') || $.trim($desc.find('strong').first().text()) || (isLogo && !/^https?:/.test(rawSrc) ? fileTitle : numberedTitle),
             type: type,
             isWeb: isWeb,
             isGraphic: isGraphic,
@@ -405,38 +432,39 @@ $(function () {
             hasVideoTabs: isVideo && Boolean(shortVideoSource),
             mainVideoUrl: isVideo ? videoEmbedUrl(mainVideoSource) : '',
             shortVideoUrl: shortVideoSource ? videoEmbedUrl(shortVideoSource) : '',
-            videos: ($slide.attr('data-videos') || '').split('|').filter(Boolean).map(videoEmbedUrl),
-            videoLabels: ($slide.attr('data-video-labels') || '').split('|').filter(Boolean),
-            detailImage: $slide.attr('data-detail-image') || rawSrc,
-            detailImages: ($slide.attr('data-detail-images') || '').split('|').filter(Boolean),
+            videos: detailVideos.length ? detailVideos.map(videoEmbedUrl) : ($slide.attr('data-videos') || '').split('|').filter(Boolean).map(videoEmbedUrl),
+            videoLabels: detailVideoLabels.length ? detailVideoLabels : ($slide.attr('data-video-labels') || '').split('|').filter(Boolean),
+            detailImage: pcGallery.images[0] || $slide.attr('data-detail-image') || rawSrc,
+            detailImages: detailGallery.images.length ? detailGallery.images : ($slide.attr('data-detail-images') || '').split('|').filter(Boolean),
+            galleryClass: $details.find('.project-gallery--continuous').length ? 'project-detail-gallery--continuous' : '',
             mobileImage: $slide.attr('data-mobile-image') || '',
-            pcImages: ($slide.attr('data-pc-images') || '').split('|').filter(Boolean),
-            pcLabels: ($slide.attr('data-pc-labels') || '').split('|').filter(Boolean),
-            mobileImages: ($slide.attr('data-mobile-images') || '').split('|').filter(Boolean),
-            mobileLabels: ($slide.attr('data-mobile-labels') || '').split('|').filter(Boolean),
-            adminImages: ($slide.attr('data-admin-images') || '').split('|').filter(Boolean),
-            adminLabels: ($slide.attr('data-admin-labels') || '').split('|').filter(Boolean),
-            processImages: ($slide.attr('data-process-images') || '').split('|').filter(Boolean),
-            processLabels: ($slide.attr('data-process-labels') || '').split('|').filter(Boolean),
+            pcImages: pcGallery.images.length ? pcGallery.images : ($slide.attr('data-pc-images') || '').split('|').filter(Boolean),
+            pcLabels: pcGallery.labels.length ? pcGallery.labels : ($slide.attr('data-pc-labels') || '').split('|').filter(Boolean),
+            mobileImages: mobileGallery.images.length ? mobileGallery.images : ($slide.attr('data-mobile-images') || '').split('|').filter(Boolean),
+            mobileLabels: mobileGallery.labels.length ? mobileGallery.labels : ($slide.attr('data-mobile-labels') || '').split('|').filter(Boolean),
+            adminImages: adminGallery.images.length ? adminGallery.images : ($slide.attr('data-admin-images') || '').split('|').filter(Boolean),
+            adminLabels: adminGallery.labels.length ? adminGallery.labels : ($slide.attr('data-admin-labels') || '').split('|').filter(Boolean),
+            processImages: processGallery.images.length ? processGallery.images : ($slide.attr('data-process-images') || '').split('|').filter(Boolean),
+            processLabels: processGallery.labels.length ? processGallery.labels : ($slide.attr('data-process-labels') || '').split('|').filter(Boolean),
             wireframeImage: $slide.attr('data-wireframe-image') || '',
             hasImageTab: isWeb || isGraphic,
             hasPlanningTab: isVideo || isPlanning,
-            overview: $slide.attr('data-overview') || $desc.find('.web-desc-text > p').first().html() || copy.defaultOverview,
+            overview: detailsOverview || $slide.attr('data-overview') || $desc.find('.web-desc-text > p').first().html() || copy.defaultOverview,
             overviewTabLabel: $slide.attr('data-overview-tab-label') || copy.overview,
             tasksTabLabel: $slide.attr('data-tasks-tab-label') || copy.tasks,
             toolsTabLabel: $slide.attr('data-tools-tab-label') || copy.toolTab,
-            projectType: $slide.attr('data-project-type') || '',
-            projectGoal: $slide.attr('data-project-goal') || '',
-            projectScope: $slide.attr('data-project-scope') || '',
-            projectRole: $slide.attr('data-project-role') || '',
-            planning: $slide.attr('data-planning') || copy.defaultPlanning,
-            planningLink: $slide.attr('data-planning-link') || '',
-            planningImage: $slide.attr('data-planning-image') || '',
-            planningImageAlt: $slide.attr('data-planning-image-alt') || `${$slide.attr('data-title') || numberedTitle} ${copy.planningTab}`,
-            tasks: $slide.attr('data-tasks') || $desc.find('.web-desc-text > ul > li').not(':has(.skill)').map(function () { return `<li>${$(this).html()}</li>`; }).get().join('') || copy.defaultTasks,
+            projectType: $.trim($details.find('.project-type').first().text()) || $slide.attr('data-project-type') || '',
+            projectGoal: $.trim($details.find('.project-goal').first().text()) || $slide.attr('data-project-goal') || '',
+            projectScope: $.trim($details.find('.project-scope').first().text()) || $slide.attr('data-project-scope') || '',
+            projectRole: $.trim($details.find('.project-role').first().text()) || $slide.attr('data-project-role') || '',
+            planning: detailPlanning || $slide.attr('data-planning') || copy.defaultPlanning,
+            planningLink: detailPlanningLink || $slide.attr('data-planning-link') || '',
+            planningImage: $detailPlanningImage.attr('src') || $slide.attr('data-planning-image') || '',
+            planningImageAlt: $detailPlanningImage.attr('alt') || $slide.attr('data-planning-image-alt') || `${detailsTitle || $slide.attr('data-title') || numberedTitle} ${copy.planningTab}`,
+            tasks: detailsTasks || $slide.attr('data-tasks') || $desc.find('.web-desc-text > ul > li').not(':has(.skill)').map(function () { return `<li>${$(this).html()}</li>`; }).get().join('') || copy.defaultTasks,
             skill: $skill.length ? $skill.prop('outerHTML') : '',
-            tools: $slide.attr('data-tools') || tools.join(' · ') || defaultTools || copy.empty,
-            contribution: $slide.attr('data-contribution') || copy.value
+            tools: detailsTools || $slide.attr('data-tools') || tools.join(' · ') || defaultTools || copy.empty,
+            contribution: detailsContribution || $slide.attr('data-contribution') || copy.value
         };
     }
 
@@ -519,6 +547,37 @@ $(function () {
 
     window.addEventListener('resize', updateVideoNavigationPosition);
     updateVideoNavigationPosition();
+
+    // 그래픽 슬라이더 화살표를 섹션이 아닌 실제 썸네일의 세로 중앙에 맞춘다.
+    const graphicSwiperElement = document.querySelector('.graphic-design.swiper');
+
+    function updateGraphicNavigationPosition() {
+        if (!graphicSwiperElement) return;
+
+        window.requestAnimationFrame(function () {
+            const activeVisual = graphicSwiperElement.querySelector('.swiper-slide-active .project-visual');
+            if (!activeVisual) return;
+
+            const containerRect = graphicSwiperElement.getBoundingClientRect();
+            const visualRect = activeVisual.getBoundingClientRect();
+            const visualCenter = visualRect.top - containerRect.top + (visualRect.height / 2);
+
+            graphicSwiperElement.style.setProperty('--graphic-nav-center', `${visualCenter}px`);
+        });
+    }
+
+    if (graphicSwiperElement?.swiper) {
+        graphicSwiperElement.swiper.on('slideChange', updateGraphicNavigationPosition);
+        graphicSwiperElement.swiper.on('resize', updateGraphicNavigationPosition);
+        graphicSwiperElement.swiper.on('observerUpdate', updateGraphicNavigationPosition);
+    }
+
+    if (graphicSwiperElement && 'ResizeObserver' in window) {
+        new ResizeObserver(updateGraphicNavigationPosition).observe(graphicSwiperElement);
+    }
+
+    window.addEventListener('resize', updateGraphicNavigationPosition);
+    updateGraphicNavigationPosition();
 
     function openModal($slide, trigger) {
         const data = projectData($slide);
@@ -661,7 +720,13 @@ $(function () {
         $modal.removeClass('is-open').attr('aria-hidden', 'true');
         $('body').removeClass('project-modal-open');
         $modal.find('.project-modal__video').attr('src', '');
-        if (lastTrigger) lastTrigger.focus();
+        $('.portfolio-project').removeClass('is-expanded');
+        if (lastTrigger) {
+            const trigger = lastTrigger;
+            lastTrigger = null;
+            trigger.focus({ preventScroll: true });
+            trigger.blur();
+        }
     }
 
     $(document).on('click.projectModal', '.project-detail-button', function (e) {
