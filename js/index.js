@@ -293,8 +293,8 @@ $(function () {
 
     // 포트폴리오 프로젝트 카드와 상세 모달
     const copy = document.documentElement.lang === 'en'
-        ? { tools: 'Tools', contribution: 'Contribution', value: '100%', detail: 'View details', close: 'Close project details', overview: 'Project overview', planningTab: 'Planning', planningLink: 'Open planning deck', tasks: 'Key work', toolTab: 'Tools used', imageTab: 'Full image', pcImageTab: 'Detail image - PC', mobileImageTab: 'Detail image - Mobile', toolsContributionTab: 'Tools · Contribution', wireframeTab: 'Wireframe', mainVideoTab: 'Main video', shortVideoTab: 'Short-form video', animationTab: 'Animation', empty: 'Tool information will be updated soon.', video: 'Video Editing', graphic: 'Graphic Design', logo: 'Logo Design', threeD: '3D Graphic', planning: 'Planning', defaultOverview: 'A project focused on concept development, visual design, and final production.', defaultPlanning: 'Organized the project goals, target audience, concept, content structure, and production direction.', defaultTasks: '<li>Concept planning and visual direction</li><li>Design production and detail refinement</li>' }
-        : { tools: '작업 툴', contribution: '개인 기여도', value: '100%', detail: '자세히 보기', close: '프로젝트 상세 닫기', overview: '프로젝트 소개', planningTab: '기획', planningLink: '기획서 열기', tasks: '주요 작업', toolTab: '사용 툴', imageTab: '상세 이미지', pcImageTab: '상세 이미지 - PC', mobileImageTab: '상세 이미지 - 모바일', toolsContributionTab: '사용 툴 · 기여도', wireframeTab: '와이어프레임', mainVideoTab: '메인 영상', shortVideoTab: '숏폼 영상', animationTab: '애니메이션', empty: '사용 툴 정보가 곧 업데이트됩니다.', video: '영상편집', graphic: '그래픽 디자인', logo: '로고 디자인', threeD: '3D 그래픽', planning: '기획', defaultOverview: '콘셉트 기획부터 비주얼 디자인과 최종 결과물 제작까지 진행한 프로젝트입니다.', defaultPlanning: '프로젝트 목표와 타깃, 콘셉트, 콘텐츠 구성 및 제작 방향을 정리했습니다.', defaultTasks: '<li>콘셉트 기획 및 비주얼 방향 설정</li><li>디자인 제작 및 디테일 보정</li>' };
+        ? { tools: 'Tools', contribution: 'Contribution', value: '100%', detail: 'View details', close: 'Close project details', overview: 'Project overview', planningTab: 'Planning', planningLink: 'Open planning deck', tasks: 'Key work', toolTab: 'Tools used', imageTab: 'Full image', pcImageTab: 'Detail image - PC', mobileImageTab: 'Detail image - Mobile', toolsContributionTab: 'Tools, Contribution', wireframeTab: 'Wireframe', mainVideoTab: 'Main video', shortVideoTab: 'Short-form video', animationTab: 'Animation', empty: 'Tool information will be updated soon.', video: 'Video Editing', graphic: 'Graphic Design', logo: 'Logo Design', threeD: '3D Graphic', planning: 'Planning', defaultOverview: 'A project focused on concept development, visual design, and final production.', defaultPlanning: 'Organized the project goals, target audience, concept, content structure, and production direction.', defaultTasks: '<li>Concept planning and visual direction</li><li>Design production and detail refinement</li>' }
+        : { tools: '작업 툴', contribution: '개인 기여도', value: '100%', detail: '자세히 보기', close: '프로젝트 상세 닫기', overview: '프로젝트 소개', planningTab: '기획', planningLink: '기획서 열기', tasks: '주요 작업', toolTab: '사용 툴', imageTab: '상세 이미지', pcImageTab: '상세 이미지 - PC', mobileImageTab: '상세 이미지 - 모바일', toolsContributionTab: '사용 툴, 기여도', wireframeTab: '와이어프레임', mainVideoTab: '메인 영상', shortVideoTab: '숏폼 영상', animationTab: '애니메이션', empty: '사용 툴 정보가 곧 업데이트됩니다.', video: '영상편집', graphic: '그래픽 디자인', logo: '로고 디자인', threeD: '3D 그래픽', planning: '기획', defaultOverview: '콘셉트 기획부터 비주얼 디자인과 최종 결과물 제작까지 진행한 프로젝트입니다.', defaultPlanning: '프로젝트 목표와 타깃, 콘셉트, 콘텐츠 구성 및 제작 방향을 정리했습니다.', defaultTasks: '<li>콘셉트 기획 및 비주얼 방향 설정</li><li>디자인 제작 및 디테일 보정</li>' };
     const projectInfoCopy = document.documentElement.lang === 'en'
         ? { heading: 'Project Information', projectType: 'Project Type', goal: 'Goal', scope: 'Scope', role: 'Role' }
         : { heading: '프로젝트 정보', projectType: '프로젝트 유형', goal: '목표', scope: '작업 범위', role: '담당 역할' };
@@ -381,7 +381,7 @@ $(function () {
         const isLogo = $section.hasClass('logo-design');
         const isPlanning = $section.hasClass('planning-design');
         const type = isVideo ? copy.video : isWeb ? 'WEB DESIGN' : isGraphic ? copy.graphic : isLogo ? copy.logo : isPlanning ? copy.planning : copy.threeD;
-        const defaultTools = isVideo ? 'Premiere Pro · After Effects' : isGraphic ? 'Photoshop · Illustrator' : isLogo ? 'Illustrator' : isPlanning ? 'PowerPoint · Figma' : 'Blender';
+        const defaultTools = isVideo ? 'Premiere Pro, After Effects' : isGraphic ? 'Photoshop, Illustrator' : isLogo ? 'Illustrator' : isPlanning ? 'PowerPoint, Figma' : 'Blender';
         const rawSrc = $slide.children('img').attr('src') || $slide.find('.project-visual > img').attr('src') || '';
         const detailMainVideo = $details.find('.project-main-video').first().attr('href') || '';
         const detailShortVideo = $details.find('.project-short-video').first().attr('href') || '';
@@ -463,7 +463,7 @@ $(function () {
             planningImageAlt: $detailPlanningImage.attr('alt') || $slide.attr('data-planning-image-alt') || `${detailsTitle || $slide.attr('data-title') || numberedTitle} ${copy.planningTab}`,
             tasks: detailsTasks || $slide.attr('data-tasks') || $desc.find('.web-desc-text > ul > li').not(':has(.skill)').map(function () { return `<li>${$(this).html()}</li>`; }).get().join('') || copy.defaultTasks,
             skill: $skill.length ? $skill.prop('outerHTML') : '',
-            tools: detailsTools || $slide.attr('data-tools') || tools.join(' · ') || defaultTools || copy.empty,
+            tools: detailsTools || $slide.attr('data-tools') || tools.join(', ') || defaultTools || copy.empty,
             contribution: detailsContribution || $slide.attr('data-contribution') || copy.value
         };
     }

@@ -708,7 +708,7 @@ header {
 
 .introduce .inner {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 50px;
     padding: 120px 0;
     color: #ffffff;
